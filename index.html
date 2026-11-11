@@ -6,8 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="theme-color" content="#12366f">
-
-<meta name="description" content="PARI ENTERPRISES SOLAR, Agra — रूफटॉप सोलर, ऑन-ग्रिड सिस्टम और सोलर इंस्टॉलेशन संबंधी जानकारी।">
+<meta name="description" content="PARI ENTERPRISES SOLAR, Agra — रूफटॉप सोलर, ऑन-ग्रिड सिस्टम और सोलर इंस्टॉलेशन।">
 
 <title>PARI ENTERPRISES SOLAR | रूफटॉप सोलर समाधान, आगरा</title>
 
@@ -18,16 +17,35 @@
 
 <link rel="stylesheet" href="style.css">
 
-
-<!-- SOLAR ANIMATION CSS -->
-
 <style>
+
+/* =================================
+   SOLAR ANIMATION OUTER CONTAINER
+================================= */
 
 .solar-scene {
     width: 60%;
     height: 234px;
-    min-height: 210px;
+    min-height: 234px;
     position: relative;
+    overflow: visible;
+    border-radius: 18px;
+    margin-left: auto;
+}
+
+/* Scaled inner scene */
+
+.solar-scene-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 166.667%;
+    height: 390px;
+
+    transform: scale(0.6);
+    transform-origin: top left;
+
     overflow: hidden;
     border-radius: 18px;
 
@@ -42,25 +60,29 @@
     font-family: Arial, sans-serif;
 }
 
-/* HEADING */
+/* =================================
+   HEADING
+================================= */
 
-.solar-scene .solar-heading {
+.solar-heading {
     position: absolute;
     top: 20px;
     right: 20px;
 
     color: white;
-    font-size: 23px;
+    font-size: 28px;
     font-weight: bold;
     letter-spacing: 2px;
 
     text-shadow: 0 0 12px #00cfff;
-    z-index: 5;
+    z-index: 10;
 }
 
-/* SUN */
+/* =================================
+   SUN
+================================= */
 
-.solar-scene .solar-sun {
+.solar-sun {
     position: absolute;
     top: 35px;
     left: 20%;
@@ -81,7 +103,9 @@
         0 0 70px #ffae00;
 
     animation: solarSunGlow 2s infinite alternate;
-    z-index: 2;
+
+    /* Sun always visible above panel */
+    z-index: 6;
 }
 
 @keyframes solarSunGlow {
@@ -96,7 +120,7 @@
 
 /* SUN LABEL */
 
-.solar-scene .solar-sun-label {
+.solar-sun-label {
     position: absolute;
     top: 125px;
     left: 22%;
@@ -104,11 +128,15 @@
     color: white;
     font-size: 13px;
     font-weight: bold;
+
+    z-index: 7;
 }
 
-/* SUN RAYS */
+/* =================================
+   SUN RAYS
+================================= */
 
-.solar-scene .solar-rays {
+.solar-rays {
     position: absolute;
     top: 115px;
     left: calc(20% + 5px);
@@ -120,10 +148,10 @@
     justify-content: space-around;
 
     pointer-events: none;
-    z-index: 3;
+    z-index: 4;
 }
 
-.solar-scene .solar-ray {
+.solar-ray {
     position: relative;
 
     width: 4px;
@@ -144,19 +172,19 @@
     animation: solarRayMove 1.5s linear infinite;
 }
 
-.solar-scene .solar-ray:nth-child(2) {
+.solar-ray:nth-child(2) {
     animation-delay: .3s;
 }
 
-.solar-scene .solar-ray:nth-child(3) {
+.solar-ray:nth-child(3) {
     animation-delay: .6s;
 }
 
-.solar-scene .solar-ray:nth-child(4) {
+.solar-ray:nth-child(4) {
     animation-delay: .9s;
 }
 
-.solar-scene .solar-ray:nth-child(5) {
+.solar-ray:nth-child(5) {
     animation-delay: 1.2s;
 }
 
@@ -176,9 +204,11 @@
     }
 }
 
-/* SOLAR PANEL */
+/* =================================
+   SOLAR PANEL
+================================= */
 
-.solar-scene .solar-panel {
+.solar-panel {
     position: absolute;
 
     left: 10%;
@@ -210,10 +240,11 @@
 
     box-shadow: 0 0 25px #1988e5;
 
+    /* Panel below sun */
     z-index: 2;
 }
 
-.solar-scene .solar-panel::after {
+.solar-panel::after {
     content: "SOLAR PANEL";
 
     position: absolute;
@@ -232,7 +263,7 @@
 
 /* PANEL STAND */
 
-.solar-scene .solar-panel-stand {
+.solar-panel-stand {
     position: absolute;
 
     left: 24%;
@@ -246,9 +277,11 @@
     transform: rotate(15deg);
 }
 
-/* ELECTRIC WIRE */
+/* =================================
+   ELECTRIC WIRE
+================================= */
 
-.solar-scene .solar-wire {
+.solar-wire {
     position: absolute;
 
     left: 34%;
@@ -265,9 +298,11 @@
     z-index: 1;
 }
 
-/* ELECTRIC CURRENT */
+/* =================================
+   MOVING ELECTRIC CURRENT
+================================= */
 
-.solar-scene .solar-current {
+.solar-current {
     position: absolute;
 
     left: 34%;
@@ -286,14 +321,14 @@
 
     animation: solarCurrentMove 3s linear infinite;
 
-    z-index: 3;
+    z-index: 5;
 }
 
-.solar-scene .solar-current:nth-child(2) {
+.solar-current.current-2 {
     animation-delay: 1s;
 }
 
-.solar-scene .solar-current:nth-child(3) {
+.solar-current.current-3 {
     animation-delay: 2s;
 }
 
@@ -328,9 +363,11 @@
     }
 }
 
-/* FAN */
+/* =================================
+   FAN
+================================= */
 
-.solar-scene .solar-fan {
+.solar-fan {
     position: absolute;
 
     right: 7%;
@@ -342,9 +379,9 @@
     z-index: 3;
 }
 
-/* FAN ROTATION - 40% SLOWER */
+/* FAN SPEED - 40% SLOWER */
 
-.solar-scene .solar-blades {
+.solar-blades {
     position: absolute;
 
     width: 100%;
@@ -363,13 +400,13 @@
     }
 }
 
-/* COMPLETELY BROWN BLADES */
+/* BROWN BLADES */
 
-.solar-scene .solar-blade {
+.solar-blade {
     position: absolute;
 
     left: 54px;
-    top: 0px;
+    top: 0;
 
     width: 22px;
     height: 62px;
@@ -383,17 +420,17 @@
     transform-origin: 11px 65px;
 }
 
-.solar-scene .solar-blade:nth-child(2) {
+.solar-blade:nth-child(2) {
     transform: rotate(120deg);
 }
 
-.solar-scene .solar-blade:nth-child(3) {
+.solar-blade:nth-child(3) {
     transform: rotate(240deg);
 }
 
 /* FAN CENTER */
 
-.solar-scene .solar-fan-center {
+.solar-fan-center {
     position: absolute;
 
     left: 47px;
@@ -413,7 +450,7 @@
 
 /* FAN LABEL */
 
-.solar-scene .solar-fan-label {
+.solar-fan-label {
     position: absolute;
 
     right: 14%;
@@ -426,7 +463,7 @@
 
 /* GROUND */
 
-.solar-scene .solar-ground {
+.solar-ground {
     position: absolute;
 
     bottom: 0;
@@ -439,74 +476,137 @@
     border-top: 3px solid #65a34e;
 }
 
-/* MOBILE RESPONSIVE */
+/* =================================
+   CUSTOMER FEEDBACK BUTTON
+================================= */
+
+.hero-visual {
+    position: relative;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.feedback-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin-top: 15px;
+    padding: 12px 24px;
+
+    background: #ffffff;
+    color: #174477;
+
+    border: 2px solid #174477;
+    border-radius: 8px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.feedback-btn:hover {
+    background: #174477;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(0,0,0,.15);
+}
+
+/* =================================
+   MOBILE
+================================= */
 
 @media(max-width:650px) {
 
-    .solar-scene {
-        height: 330px;
-        min-height: 330px;
+    .hero-visual {
+        left: 0;
+        align-items: center;
     }
 
-    .solar-scene .solar-heading {
-        font-size: 17px;
+    .solar-scene {
+        width: 85%;
+        height: 280.5px;
+        min-height: 280.5px;
+    }
+
+    .solar-scene-inner {
+        width: 117.647%;
+        height: 330px;
+        transform: scale(.85);
+    }
+
+    .solar-heading {
+        font-size: 20px;
         right: 12px;
         top: 15px;
     }
 
-    .solar-scene .solar-sun {
+    .solar-sun {
         left: 17%;
         width: 65px;
         height: 65px;
     }
 
-    .solar-scene .solar-rays {
+    .solar-rays {
         left: calc(17% + 2px);
         top: 100px;
     }
 
-    .solar-scene .solar-sun-label {
+    .solar-sun-label {
         top: 108px;
         left: 20%;
     }
 
-    .solar-scene .solar-panel {
+    .solar-panel {
         left: 5%;
         width: 150px;
         height: 90px;
         bottom: 65px;
     }
 
-    .solar-scene .solar-panel::after {
+    .solar-panel::after {
         top: 30px;
         font-size: 10px;
     }
 
-    .solar-scene .solar-panel-stand {
+    .solar-panel-stand {
         left: 17%;
     }
 
-    .solar-scene .solar-wire {
+    .solar-wire {
         left: 32%;
         width: 50%;
         top: 65%;
     }
 
-    .solar-scene .solar-current {
+    .solar-current {
         left: 32%;
         top: 65%;
     }
 
-    .solar-scene .solar-fan {
+    .solar-fan {
         right: 2%;
         bottom: 65px;
         transform: scale(.8);
         transform-origin: bottom right;
     }
 
-    .solar-scene .solar-fan-label {
+    .solar-fan-label {
         right: 10%;
         bottom: 40px;
+    }
+
+    .feedback-btn {
+        margin-top: 12px;
+        font-size: 14px;
     }
 }
 
@@ -516,8 +616,9 @@
 
 <body>
 
-<div class="topbar">
+<!-- TOP BAR -->
 
+<div class="topbar">
     <div class="wrap topbar-inner">
 
         <span>☀️ स्वच्छ ऊर्जा • बेहतर भविष्य</span>
@@ -534,9 +635,10 @@
         </div>
 
     </div>
-
 </div>
 
+
+<!-- HEADER -->
 
 <header class="site-header">
 
@@ -559,9 +661,7 @@
 
         <nav class="nav" id="nav">
 
-            <a aria-current="page" class="active" href="index.html">
-                होम
-            </a>
+            <a aria-current="page" class="active" href="index.html">होम</a>
 
             <a href="about.html">हमारे बारे में</a>
 
@@ -578,6 +678,8 @@
 </header>
 
 
+<!-- MAIN -->
+
 <main>
 
 <section class="hero" id="home">
@@ -586,12 +688,12 @@
 
     <div class="wrap hero-grid">
 
+        <!-- LEFT CONTENT -->
+
         <div class="hero-copy">
 
             <span class="eyebrow">
-
                 <i></i> PARI ENTERPRISES SOLAR • AGRA
-
             </span>
 
             <h1>
@@ -600,11 +702,9 @@
             </h1>
 
             <p class="hero-lead">
-
                 हर महीने केवल ₹2,000 की आसान किस्त चुकाएँ।
                 सिर्फ 3 साल तक किस्तों का भुगतान करें और उसके बाद
                 जीवनभर मुफ्त बिजली (300-400 यूनिट प्रति माह) का लाभ उठाएँ।
-
             </p>
 
             <div class="hero-actions">
@@ -631,86 +731,104 @@
         </div>
 
 
-        <!-- SOLAR ANIMATION REPLACES IMAGE -->
+        <!-- RIGHT SOLAR ANIMATION -->
 
         <div class="hero-visual">
 
             <div class="solar-scene">
 
-                <!-- HEADING -->
+                <div class="solar-scene-inner">
 
-                <div class="solar-heading">
-                    SOLAR ENERGY
-                </div>
+                    <!-- HEADING -->
 
-
-                <!-- SUN -->
-
-                <div class="solar-sun"></div>
-
-                <div class="solar-sun-label">
-                    SUN
-                </div>
+                    <div class="solar-heading">
+                        SOLAR ENERGY
+                    </div>
 
 
-                <!-- SUN RAYS -->
+                    <!-- SUN -->
 
-                <div class="solar-rays">
+                    <div class="solar-sun"></div>
 
-                    <div class="solar-ray"></div>
-                    <div class="solar-ray"></div>
-                    <div class="solar-ray"></div>
-                    <div class="solar-ray"></div>
-                    <div class="solar-ray"></div>
-
-                </div>
+                    <div class="solar-sun-label">
+                        SUN
+                    </div>
 
 
-                <!-- SOLAR PANEL -->
+                    <!-- SUN RAYS -->
 
-                <div class="solar-panel"></div>
+                    <div class="solar-rays">
 
-                <div class="solar-panel-stand"></div>
-
-
-                <!-- ELECTRIC WIRE -->
-
-                <div class="solar-wire"></div>
-
-
-                <!-- MOVING ELECTRIC CURRENT -->
-
-                <div class="solar-current"></div>
-                <div class="solar-current"></div>
-                <div class="solar-current"></div>
-
-
-                <!-- FAN -->
-
-                <div class="solar-fan">
-
-                    <div class="solar-blades">
-
-                        <div class="solar-blade"></div>
-                        <div class="solar-blade"></div>
-                        <div class="solar-blade"></div>
+                        <div class="solar-ray"></div>
+                        <div class="solar-ray"></div>
+                        <div class="solar-ray"></div>
+                        <div class="solar-ray"></div>
+                        <div class="solar-ray"></div>
 
                     </div>
 
-                    <div class="solar-fan-center"></div>
+
+                    <!-- SOLAR PANEL -->
+
+                    <div class="solar-panel"></div>
+
+                    <div class="solar-panel-stand"></div>
+
+
+                    <!-- ELECTRIC WIRE -->
+
+                    <div class="solar-wire"></div>
+
+
+                    <!-- ELECTRIC CURRENT -->
+
+                    <div class="solar-current"></div>
+                    <div class="solar-current current-2"></div>
+                    <div class="solar-current current-3"></div>
+
+
+                    <!-- FAN -->
+
+                    <div class="solar-fan">
+
+                        <div class="solar-blades">
+
+                            <div class="solar-blade"></div>
+                            <div class="solar-blade"></div>
+                            <div class="solar-blade"></div>
+
+                        </div>
+
+                        <div class="solar-fan-center"></div>
+
+                    </div>
+
+                    <div class="solar-fan-label">
+                        FAN
+                    </div>
+
+
+                    <!-- GROUND -->
+
+                    <div class="solar-ground"></div>
 
                 </div>
-
-                <div class="solar-fan-label">
-                    FAN
-                </div>
-
-
-                <!-- GROUND -->
-
-                <div class="solar-ground"></div>
 
             </div>
+
+
+            <!-- CUSTOMER FEEDBACK BUTTON -->
+
+            <a class="feedback-btn"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=parienterprises2411@gmail.com&su=Customer%20Feedback&body=Namaste%2C%20I%20would%20like%20to%20share%20my%20feedback."
+               target="_blank"
+               rel="noopener">
+
+                <span>✉</span>
+                Customer Feedback
+                <span>↗</span>
+
+            </a>
 
         </div>
 
@@ -721,41 +839,37 @@
 </section>
 
 
+<!-- QUICK STRIP -->
+
 <section class="quick-strip">
 
     <div class="wrap quick-grid">
 
         <div>
-
             <span class="quick-icon">⌂</span>
 
             <span>
                 <b>Residential Solar</b>
                 <small>घरों के लिए रूफटॉप सोलर</small>
             </span>
-
         </div>
 
         <div>
-
             <span class="quick-icon">⚡</span>
 
             <span>
                 <b>On-Grid Systems</b>
                 <small>ग्रिड से जुड़ी सोलर व्यवस्था</small>
             </span>
-
         </div>
 
         <div>
-
             <span class="quick-icon">☀</span>
 
             <span>
                 <b>Scheme Guidance</b>
                 <small>योजना की जानकारी व मार्गदर्शन</small>
             </span>
-
         </div>
 
     </div>
@@ -764,6 +878,8 @@
 
 </main>
 
+
+<!-- FOOTER -->
 
 <footer class="footer">
 
