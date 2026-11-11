@@ -20,29 +20,57 @@
 @media(max-width:680px){.hero-visual{height:260px;margin:15px 0 10px}.about-art{min-height:280px}.about-photo{height:280px}}
 @media(max-width:390px){.hero-visual{height:220px}.about-art{min-height:240px}.about-photo{height:240px}}
 
-/* Mobile: Show all three hero buttons */
-@media (max-width: 680px) {
+/* =========================================================
+   HERO BUTTONS — RESPONSIVE VISIBILITY FIX
+   Keeps the existing design and makes the documents link
+   visible on mobile when it exists in index.html.
+========================================================= */
 
+/* Desktop and tablet */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 13px;
+}
+
+.hero-actions a[href*="documents"] {
+    display: inline-flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Mobile portrait and landscape */
+@media screen and (max-width: 680px) {
     .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: stretch;
-        width: 100%;
-        gap: 13px;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 13px !important;
     }
 
     .hero-actions > a {
-        min-width: 0;
+        box-sizing: border-box !important;
+        min-width: 0 !important;
     }
 
-    .hero-actions > a[href="documents.html"] {
+    .hero-actions a[href*="documents"],
+    .hero-actions a.documents-btn {
         display: flex !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 54px !important;
+        justify-content: center !important;
+        align-items: center !important;
         visibility: visible !important;
         opacity: 1 !important;
-        flex: 0 0 100%;
-        width: 100%;
-        max-width: 100%;
-        justify-content: center;
+        position: relative !important;
+        order: 3 !important;
+        margin: 0 !important;
+        transform: none !important;
     }
 }
