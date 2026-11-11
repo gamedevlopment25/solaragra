@@ -19,3 +19,30 @@
 @media(max-width:850px){.hero-visual{height:320px}.about-photo{height:320px}}
 @media(max-width:680px){.hero-visual{height:260px;margin:15px 0 10px}.about-art{min-height:280px}.about-photo{height:280px}}
 @media(max-width:390px){.hero-visual{height:220px}.about-art{min-height:240px}.about-photo{height:240px}}
+
+/* Mobile: Show all three hero buttons */
+@media (max-width: 680px) {
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        width: 100%;
+        gap: 13px;
+    }
+
+    .hero-actions > a {
+        min-width: 0;
+    }
+
+    .hero-actions > a[href="documents.html"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+    }
+}
