@@ -652,11 +652,15 @@
 .documents-action {
     position: relative;
     z-index: 6;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
     width: 100%;
     margin: 12px 0 0;
 }
-.documents-action .documents-btn {
+.documents-action .documents-btn,
+.documents-action .site-visit-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -682,7 +686,12 @@
         width: 100%;
         margin: 12px 0 20px;
     }
-    .documents-action .documents-btn {
+    .documents-action {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .documents-action .documents-btn,
+    .documents-action .site-visit-btn {
         display: flex !important;
         width: 100%;
         box-sizing: border-box;
@@ -815,6 +824,9 @@
             <div class="documents-action">
                 <a class="btn btn-outline documents-btn" href="documents.html">
                     आवश्यक दस्तावेज़ देखें
+                </a>
+                <a class="btn btn-outline site-visit-btn" href="site-visit.html">
+                    Site Visit Request
                 </a>
             </div>
 
