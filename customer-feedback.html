@@ -65,7 +65,7 @@
 .feedback-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 920px;
+    min-width: 700px;
 }
 
 .feedback-table th {
@@ -126,36 +126,6 @@
 
 .record-address {
     width: 145px;
-}
-
-/* DETAILS TEXTAREA */
-
-.details-field {
-    width: 100%;
-    min-width: 220px;
-    min-height: 82px;
-
-    resize: vertical;
-
-    font: inherit;
-    font-size: 14px;
-    line-height: 1.5;
-
-    padding: 10px;
-
-    border: 1px solid #d7e0ec;
-    border-radius: 8px;
-
-    color: #26364d;
-}
-
-/* INPUT FOCUS */
-
-.record-date:focus,
-.record-address:focus,
-.details-field:focus {
-    outline: 2px solid #8bb8f0;
-    border-color: #3977c7;
 }
 
 /* SAVE BUTTON */
@@ -354,8 +324,6 @@
 
                         <th>Customer Image</th>
 
-                        <th>Details / Feedback</th>
-
                     </tr>
 
                 </thead>
@@ -392,13 +360,6 @@
                                 alt="Solar installation customer in Agra">
                         </td>
 
-                        <td>
-                            <textarea
-                                class="details-field"
-                                placeholder="यहाँ ग्राहक की अन्य जानकारी या feedback लिखें...">
-                            </textarea>
-                        </td>
-
                     </tr>
 
 
@@ -431,13 +392,6 @@
                                 alt="Solar installation customer in Agra">
                         </td>
 
-                        <td>
-                            <textarea
-                                class="details-field"
-                                placeholder="यहाँ ग्राहक की अन्य जानकारी या feedback लिखें...">
-                            </textarea>
-                        </td>
-
                     </tr>
 
 
@@ -468,13 +422,6 @@
                                 class="customer-photo"
                                 src="feedback3.jpg"
                                 alt="Solar installation customer in Tundla">
-                        </td>
-
-                        <td>
-                            <textarea
-                                class="details-field"
-                                placeholder="यहाँ ग्राहक की अन्य जानकारी या feedback लिखें...">
-                            </textarea>
                         </td>
 
                     </tr>
@@ -678,13 +625,7 @@
 
             address: row.querySelector(
                 ".record-address"
-            ).value,
-
-            details: row.querySelector(
-                ".details-field"
-            ).value
-
-        }));
+            ).value,}));
 
 
         try {
