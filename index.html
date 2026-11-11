@@ -510,6 +510,36 @@
     transform: translateY(-4px);
 }
 
+/* CUSTOMER FEEDBACK BUTTON BELOW PHOTOS */
+.feedback-page-button {
+    width: 60%;
+    margin: 12px 0 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.feedback-page-button a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: 30px;
+    background: #12366f;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Hind', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 5px 14px rgba(18, 54, 111, .22);
+    transition: background .25s ease, transform .25s ease;
+}
+
+.feedback-page-button a:hover {
+    background: #0b2855;
+    transform: translateY(-2px);
+}
+
 /* =================================
    MOBILE
 ================================= */
@@ -599,6 +629,16 @@
         margin-left: auto;
         margin-right: auto;
         gap: 6px;
+    }
+
+    .feedback-page-button {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .feedback-page-button a {
+        width: 100%;
     }
 }
 
@@ -814,6 +854,12 @@
                 <img src="feedback1.jpg" alt="Solar installation customer photo 1" loading="lazy">
                 <img src="feedback2.jpg" alt="Solar installation customer photo 2" loading="lazy">
                 <img src="feedback3.jpg" alt="Solar installation customer photo 3" loading="lazy">
+            </div>
+
+            <div class="feedback-page-button">
+                <a href="customer-feedback.html">
+                    Customer Feedback <span>↗</span>
+                </a>
             </div>
 
         </div>
