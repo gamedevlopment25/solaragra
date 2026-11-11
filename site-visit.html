@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#12366f">
+<meta name="description" content="PARI ENTERPRISES SOLAR के लिए Site Visit Request भेजें।">
+<title>Site Visit Request | PARI ENTERPRISES SOLAR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.visit-page {
+    background: linear-gradient(115deg,#f7faf4 0%,#fff 58%,#f0f6e9 100%);
+    min-height: calc(100vh - 118px);
+    padding: 58px 0 75px;
+}
+.visit-wrap { max-width: 760px; margin: 0 auto; }
+.visit-heading { text-align:center; margin-bottom:28px; }
+.visit-heading h1 {
+    color:var(--blue2);
+    font-size:clamp(32px,5vw,46px);
+    line-height:1.2;
+    margin:12px 0;
+}
+.visit-heading h1 em { color:var(--green2); font-style:normal; }
+.visit-heading p { color:var(--muted); font-size:16px; }
+.visit-card {
+    background:#fff;
+    border:1px solid #e8eee2;
+    border-radius:14px;
+    padding:34px;
+    box-shadow:0 15px 45px rgba(18,54,111,.09);
+}
+.visit-form { display:grid; gap:18px; }
+.visit-field label {
+    display:block;
+    color:var(--blue);
+    font-weight:600;
+    margin-bottom:7px;
+}
+.visit-field input,
+.visit-field textarea {
+    width:100%;
+    box-sizing:border-box;
+    border:1px solid #ccd6c7;
+    border-radius:7px;
+    padding:13px 14px;
+    font:16px 'Hind',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    outline:none;
+}
+.visit-field input:focus,
+.visit-field textarea:focus {
+    border-color:var(--green2);
+    box-shadow:0 0 0 3px rgba(79,148,24,.12);
+}
+.visit-field textarea { min-height:105px; resize:vertical; }
+.visit-submit {
+    width:100%;
+    border:0;
+    cursor:pointer;
+    background:var(--green2);
+    color:#fff;
+    border-radius:7px;
+    padding:15px 20px;
+    font:700 18px 'Hind',sans-serif;
+    box-shadow:0 9px 22px #4f94182b;
+}
+.visit-submit:hover { background:#3f7c10; }
+.visit-help {
+    text-align:center;
+    color:#758092;
+    font-size:13px;
+    margin:0;
+}
+.visit-back {
+    display:inline-block;
+    margin-top:20px;
+    color:var(--blue);
+    font-weight:600;
+}
+@media(max-width:600px) {
+    .visit-page { padding:38px 0 55px; }
+    .visit-card { padding:23px 18px; }
+    .visit-heading p { font-size:15px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="wrap topbar-inner">
+        <span>☀️ स्वच्छ ऊर्जा • बेहतर भविष्य</span>
+        <div>
+            <a href="tel:9411022931">94110 22931</a>
+            <span class="top-sep">|</span>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parienterprises2411@gmail.com" target="_blank" rel="noopener">ईमेल करें</a>
+        </div>
+    </div>
+</div>
+
+<header class="site-header">
+    <div class="wrap nav-wrap">
+        <a aria-label="PARI ENTERPRISES SOLAR Home" class="brand" href="index.html">
+            <img alt="PARI ENTERPRISES SOLAR logo" src="pari%20enterprises.png">
+        </a>
+        <button aria-expanded="false" aria-label="मेन्यू खोलें" class="menu-toggle" type="button">☰</button>
+        <nav class="nav" id="nav">
+            <a href="index.html">होम</a>
+            <a href="about.html">हमारे बारे में</a>
+            <a href="services.html">सेवाएँ</a>
+            <a href="process.html">प्रक्रिया</a>
+            <a class="nav-cta" href="contact.html">संपर्क करें</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+<section class="visit-page">
+    <div class="wrap visit-wrap">
+        <div class="visit-heading">
+            <span class="eyebrow"><i></i> PARI ENTERPRISES SOLAR • AGRA</span>
+            <h1>Site Visit <em>Request</em></h1>
+            <p>अपने घर या स्थान पर सोलर साइट विजिट के लिए नीचे जानकारी भरें।</p>
+        </div>
+
+        <div class="visit-card">
+            <form class="visit-form" id="siteVisitForm">
+                <div class="visit-field">
+                    <label for="customerName">आपका नाम *</label>
+                    <input id="customerName" name="customerName" type="text" placeholder="अपना पूरा नाम लिखें" autocomplete="name" required>
+                </div>
+
+                <div class="visit-field">
+                    <label for="customerMobile">मोबाइल नंबर *</label>
+                    <input id="customerMobile" name="customerMobile" type="tel" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10 अंकों का मोबाइल नंबर" autocomplete="tel" required>
+                </div>
+
+                <div class="visit-field">
+                    <label for="customerAddress">पूरा पता *</label>
+                    <textarea id="customerAddress" name="customerAddress" placeholder="मकान नंबर, गली, मोहल्ला, शहर और पिन कोड लिखें" autocomplete="street-address" required></textarea>
+                </div>
+
+                <div class="visit-field">
+                    <label for="visitDate">Site Visit की पसंदीदा तारीख (वैकल्पिक)</label>
+                    <input id="visitDate" name="visitDate" type="date">
+                </div>
+
+                <button class="visit-submit" type="submit">WhatsApp पर Request भेजें ↗</button>
+                <p class="visit-help">Submit करने पर WhatsApp खुलेगा। जानकारी भेजने के लिए वहाँ Send दबाएँ।</p>
+            </form>
+        </div>
+
+        <div style="text-align:center">
+            <a class="visit-back" href="index.html">← मुख्य पेज पर वापस जाएँ</a>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-main">
+        <a class="footer-brand" href="index.html">
+            <img alt="PARI ENTERPRISES SOLAR logo" src="pari%20enterprises.png">
+        </a>
+        <p>सूरज की शक्ति, बिजली के बिल से राहत!<br>सौर ऊर्जा की ओर बढ़ाएँ एक स्मार्ट कदम।</p>
+        <div class="footer-links">
+            <a href="index.html">होम</a>
+            <a href="about.html">हमारे बारे में</a>
+            <a href="services.html">सेवाएँ</a>
+            <a href="contact.html">संपर्क करें</a>
+        </div>
+    </div>
+    <div class="wrap copyright">
+        © <span id="year"></span> PARI ENTERPRISES SOLAR. सर्वाधिकार सुरक्षित।
+    </div>
+</footer>
+
+<a aria-label="WhatsApp पर संपर्क करें" class="whatsapp-float" href="https://wa.me/919411022931" target="_blank" rel="noopener">☏</a>
+
+<script src="script.js"></script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("siteVisitForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("customerName").value.trim();
+    const mobile = document.getElementById("customerMobile").value.trim();
+    const address = document.getElementById("customerAddress").value.trim();
+    const dateValue = document.getElementById("visitDate").value;
+
+    if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+        alert("कृपया सही 10 अंकों का मोबाइल नंबर भरें।");
+        return;
+    }
+
+    const date = dateValue
+        ? new Date(dateValue + "T00:00:00").toLocaleDateString("en-IN")
+        : "ग्राहक द्वारा नहीं बताई गई";
+
+    const message =
+`*नई Site Visit Request*
+*PARI ENTERPRISES SOLAR*
+
+ग्राहक का नाम: ${name}
+मोबाइल नंबर: ${mobile}
+पूरा पता: ${address}
+पसंदीदा Site Visit तारीख: ${date}`;
+
+    const whatsappURL = "https://wa.me/919411022931?text=" + encodeURIComponent(message);
+    window.open(whatsappURL, "_blank", "noopener,noreferrer");
+});
+</script>
+
+</body>
+</html>
