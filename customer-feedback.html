@@ -430,47 +430,7 @@
 
             </table>
 
-        </div>
-
-
-        <!-- SAVE DETAILS -->
-
-        <div class="feedback-actions">
-
-            <button
-                type="button"
-                class="save-feedback"
-                id="saveFeedback">
-
-                Save Details
-
-            </button>
-
-            <span
-                class="save-status"
-                id="saveStatus"
-                role="status"
-                aria-live="polite">
-            </span>
-
-        </div>
-
-
-        <!-- NOTE -->
-
-        <div class="feedback-note">
-
-            <strong>ध्यान दें:</strong>
-
-            इस पेज पर भरी गई अतिरिक्त जानकारी Save Details दबाने पर इसी ब्राउज़र के Local Storage में सेव होगी।
-
-            GitHub Pages पर यह जानकारी अपने-आप सभी visitors या दूसरे devices पर साझा नहीं होगी।
-
-            स्थायी और साझा रिकॉर्ड के लिए बाद में database/backend जोड़ना होगा।
-
-        </div>
-
-    </div>
+        </div></div>
 
 </section>
 
@@ -543,123 +503,10 @@
 <script src="script.js"></script>
 
 <script>
-
-/* SAVE CUSTOMER DETAILS IN LOCAL STORAGE */
-
-(function () {
-
-    const storageKey = "pariSolarCustomerRecords";
-
-    const rows = Array.from(
-        document.querySelectorAll(
-            ".feedback-table tbody tr"
-        )
-    );
-
-    const saveButton = document.getElementById(
-        "saveFeedback"
-    );
-
-    const status = document.getElementById(
-        "saveStatus"
-    );
-
-
-    /* LOAD PREVIOUSLY SAVED DETAILS */
-
-    try {
-
-        const saved = JSON.parse(
-            localStorage.getItem(storageKey) || "[]"
-        );
-
-        rows.forEach((row, index) => {
-
-            if (!saved[index]) return;
-
-            const date = row.querySelector(
-                ".record-date"
-            );
-
-            const address = row.querySelector(
-                ".record-address"
-            );
-
-            const details = row.querySelector(
-                ".details-field"
-            );
-
-            if (saved[index].date !== undefined) {
-                date.value = saved[index].date;
-            }
-
-            if (saved[index].address !== undefined) {
-                address.value = saved[index].address;
-            }
-
-            if (saved[index].details !== undefined) {
-                details.value = saved[index].details;
-            }
-
-        });
-
-    } catch (error) {
-
-        console.warn(
-            "Could not load saved customer records.",
-            error
-        );
-
-    }
-
-
-    /* SAVE BUTTON */
-
-    saveButton.addEventListener("click", function () {
-
-        const records = rows.map(row => ({
-
-            date: row.querySelector(
-                ".record-date"
-            ).value,
-
-            address: row.querySelector(
-                ".record-address"
-            ).value,}));
-
-
-        try {
-
-            localStorage.setItem(
-                storageKey,
-                JSON.stringify(records)
-            );
-
-            status.textContent =
-                "Details saved in this browser.";
-
-        } catch (error) {
-
-            status.textContent =
-                "Save नहीं हो पाया। Browser storage उपलब्ध नहीं है।";
-
-        }
-
-    });
-
-
-    /* CURRENT YEAR */
-
     const year = document.getElementById("year");
-
     if (year) {
-
         year.textContent = new Date().getFullYear();
-
     }
-
-})();
-
 </script>
 
 </body>
