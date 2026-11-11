@@ -1,115 +1,822 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta name="theme-color" content="#12366f">
+
 <meta name="description" content="PARI ENTERPRISES SOLAR, Agra — रूफटॉप सोलर, ऑन-ग्रिड सिस्टम और सोलर इंस्टॉलेशन संबंधी जानकारी।">
+
 <title>PARI ENTERPRISES SOLAR | रूफटॉप सोलर समाधान, आगरा</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
-</head><body>
+
+
+<!-- SOLAR ANIMATION CSS -->
+
+<style>
+
+.solar-scene {
+    width: 100%;
+    height: 390px;
+    min-height: 350px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+
+    background: linear-gradient(
+        180deg,
+        #102c50,
+        #183e62 75%,
+        #244e36
+    );
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.22);
+    font-family: Arial, sans-serif;
+}
+
+/* HEADING */
+
+.solar-scene .solar-heading {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    text-shadow: 0 0 12px #00cfff;
+    z-index: 5;
+}
+
+/* SUN */
+
+.solar-scene .solar-sun {
+    position: absolute;
+    top: 35px;
+    left: 20%;
+
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        #fff9a0,
+        #ffcc00,
+        #ff8c00
+    );
+
+    box-shadow:
+        0 0 30px #ffce35,
+        0 0 70px #ffae00;
+
+    animation: solarSunGlow 2s infinite alternate;
+    z-index: 2;
+}
+
+@keyframes solarSunGlow {
+    from {
+        box-shadow: 0 0 25px #ffce35;
+    }
+
+    to {
+        box-shadow: 0 0 75px #ffae00;
+    }
+}
+
+/* SUN LABEL */
+
+.solar-scene .solar-sun-label {
+    position: absolute;
+    top: 125px;
+    left: 22%;
+
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* SUN RAYS */
+
+.solar-scene .solar-rays {
+    position: absolute;
+    top: 115px;
+    left: calc(20% + 5px);
+
+    width: 105px;
+    height: 160px;
+
+    display: flex;
+    justify-content: space-around;
+
+    pointer-events: none;
+    z-index: 3;
+}
+
+.solar-scene .solar-ray {
+    position: relative;
+
+    width: 4px;
+    height: 135px;
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #fff9a0,
+        #ffcf24,
+        transparent
+    );
+
+    opacity: 0;
+
+    filter: drop-shadow(0 0 7px #ffdc35);
+
+    animation: solarRayMove 1.5s linear infinite;
+}
+
+.solar-scene .solar-ray:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.solar-scene .solar-ray:nth-child(3) {
+    animation-delay: .6s;
+}
+
+.solar-scene .solar-ray:nth-child(4) {
+    animation-delay: .9s;
+}
+
+.solar-scene .solar-ray:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+@keyframes solarRayMove {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+}
+
+/* SOLAR PANEL */
+
+.solar-scene .solar-panel {
+    position: absolute;
+
+    left: 10%;
+    bottom: 65px;
+
+    width: 190px;
+    height: 105px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 45px,
+            #72b8e8 47px,
+            transparent 49px
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+            #124a81 0px,
+            #124a81 32px,
+            #65b4e8 34px,
+            #124a81 36px
+        );
+
+    border: 4px solid #a9cce5;
+
+    transform: skewY(-8deg);
+
+    box-shadow: 0 0 25px #1988e5;
+
+    z-index: 2;
+}
+
+.solar-scene .solar-panel::after {
+    content: "SOLAR PANEL";
+
+    position: absolute;
+    top: 35px;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+
+    text-shadow: 0 0 5px black;
+}
+
+/* PANEL STAND */
+
+.solar-scene .solar-panel-stand {
+    position: absolute;
+
+    left: 24%;
+    bottom: 25px;
+
+    width: 7px;
+    height: 75px;
+
+    background: #9ca3af;
+
+    transform: rotate(15deg);
+}
+
+/* ELECTRIC WIRE */
+
+.solar-scene .solar-wire {
+    position: absolute;
+
+    left: 34%;
+    top: 64%;
+
+    width: 49%;
+    height: 65px;
+
+    border-top: 4px solid #d7dce4;
+    border-right: 4px solid #d7dce4;
+
+    border-radius: 0 20px 0 0;
+
+    z-index: 1;
+}
+
+/* ELECTRIC CURRENT */
+
+.solar-scene .solar-current {
+    position: absolute;
+
+    left: 34%;
+    top: 64%;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #00f5ff;
+
+    box-shadow:
+        0 0 12px #00eaff,
+        0 0 25px #00eaff;
+
+    animation: solarCurrentMove 3s linear infinite;
+
+    z-index: 3;
+}
+
+.solar-scene .solar-current:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.solar-scene .solar-current:nth-child(3) {
+    animation-delay: 2s;
+}
+
+@keyframes solarCurrentMove {
+
+    0% {
+        left: 34%;
+        top: 64%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    65% {
+        left: 82%;
+        top: 64%;
+        opacity: 1;
+    }
+
+    85% {
+        left: 82%;
+        top: 82%;
+        opacity: 1;
+    }
+
+    100% {
+        left: 82%;
+        top: 82%;
+        opacity: 0;
+    }
+}
+
+/* FAN */
+
+.solar-scene .solar-fan {
+    position: absolute;
+
+    right: 7%;
+    bottom: 65px;
+
+    width: 130px;
+    height: 130px;
+
+    z-index: 3;
+}
+
+/* FAN ROTATION - 40% SLOWER */
+
+.solar-scene .solar-blades {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    animation: solarRotateFan 1.667s linear infinite;
+}
+
+@keyframes solarRotateFan {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* COMPLETELY BROWN BLADES */
+
+.solar-scene .solar-blade {
+    position: absolute;
+
+    left: 54px;
+    top: 0px;
+
+    width: 22px;
+    height: 62px;
+
+    background: #75401e;
+
+    border: 1px solid #4a2614;
+
+    border-radius: 50% 50% 10% 10%;
+
+    transform-origin: 11px 65px;
+}
+
+.solar-scene .solar-blade:nth-child(2) {
+    transform: rotate(120deg);
+}
+
+.solar-scene .solar-blade:nth-child(3) {
+    transform: rotate(240deg);
+}
+
+/* FAN CENTER */
+
+.solar-scene .solar-fan-center {
+    position: absolute;
+
+    left: 47px;
+    top: 47px;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: #75401e;
+
+    border: 4px solid #4a2614;
+
+    z-index: 2;
+}
+
+/* FAN LABEL */
+
+.solar-scene .solar-fan-label {
+    position: absolute;
+
+    right: 14%;
+    bottom: 40px;
+
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* GROUND */
+
+.solar-scene .solar-ground {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+    height: 25px;
+
+    background: #244e36;
+
+    border-top: 3px solid #65a34e;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:650px) {
+
+    .solar-scene {
+        height: 330px;
+        min-height: 330px;
+    }
+
+    .solar-scene .solar-heading {
+        font-size: 17px;
+        right: 12px;
+        top: 15px;
+    }
+
+    .solar-scene .solar-sun {
+        left: 17%;
+        width: 65px;
+        height: 65px;
+    }
+
+    .solar-scene .solar-rays {
+        left: calc(17% + 2px);
+        top: 100px;
+    }
+
+    .solar-scene .solar-sun-label {
+        top: 108px;
+        left: 20%;
+    }
+
+    .solar-scene .solar-panel {
+        left: 5%;
+        width: 150px;
+        height: 90px;
+        bottom: 65px;
+    }
+
+    .solar-scene .solar-panel::after {
+        top: 30px;
+        font-size: 10px;
+    }
+
+    .solar-scene .solar-panel-stand {
+        left: 17%;
+    }
+
+    .solar-scene .solar-wire {
+        left: 32%;
+        width: 50%;
+        top: 65%;
+    }
+
+    .solar-scene .solar-current {
+        left: 32%;
+        top: 65%;
+    }
+
+    .solar-scene .solar-fan {
+        right: 2%;
+        bottom: 65px;
+        transform: scale(.8);
+        transform-origin: bottom right;
+    }
+
+    .solar-scene .solar-fan-label {
+        right: 10%;
+        bottom: 40px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
 <div class="topbar">
-<div class="wrap topbar-inner">
-<span>☀️ स्वच्छ ऊर्जा • बेहतर भविष्य</span>
-<div>
-<a href="tel:9411022931">94110 22931</a>
-<span class="top-sep">|</span>
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=parienterprises2411@gmail.com" target="_blank" rel="noopener">ईमेल करें</a>
+
+    <div class="wrap topbar-inner">
+
+        <span>☀️ स्वच्छ ऊर्जा • बेहतर भविष्य</span>
+
+        <div>
+            <a href="tel:9411022931">94110 22931</a>
+
+            <span class="top-sep">|</span>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parienterprises2411@gmail.com"
+               target="_blank" rel="noopener">
+                ईमेल करें
+            </a>
+        </div>
+
+    </div>
+
 </div>
-</div>
-</div>
+
+
 <header class="site-header">
-<div class="wrap nav-wrap">
-<a aria-label="PARI ENTERPRISES SOLAR Home" class="brand" href="index.html">
-<img alt="PARI ENTERPRISES SOLAR logo" src="pari%20enterprises.png"/>
-</a>
-<button aria-expanded="false" aria-label="मेन्यू खोलें" class="menu-toggle">☰</button>
-<nav class="nav" id="nav"><a aria-current="page" class="active" href="index.html">होम</a><a href="about.html">हमारे बारे में</a><a href="services.html">सेवाएँ</a><a href="process.html">प्रक्रिया</a><a class="nav-cta" href="contact.html">संपर्क करें</a></nav>
-</div>
+
+    <div class="wrap nav-wrap">
+
+        <a aria-label="PARI ENTERPRISES SOLAR Home"
+           class="brand"
+           href="index.html">
+
+            <img alt="PARI ENTERPRISES SOLAR logo"
+                 src="pari%20enterprises.png"/>
+
+        </a>
+
+        <button aria-expanded="false"
+                aria-label="मेन्यू खोलें"
+                class="menu-toggle">
+            ☰
+        </button>
+
+        <nav class="nav" id="nav">
+
+            <a aria-current="page" class="active" href="index.html">
+                होम
+            </a>
+
+            <a href="about.html">हमारे बारे में</a>
+
+            <a href="services.html">सेवाएँ</a>
+
+            <a href="process.html">प्रक्रिया</a>
+
+            <a class="nav-cta" href="contact.html">संपर्क करें</a>
+
+        </nav>
+
+    </div>
+
 </header>
-<main><section class="hero" id="home">
-<div class="hero-glow"></div>
-<div class="wrap hero-grid">
-<div class="hero-copy">
-<span class="eyebrow">
-<i></i> PARI ENTERPRISES SOLAR • AGRA
-          </span>
-<h1>
-            सोलर लगवाएँ,<br/>
-<em>सिर्फ ₹2,000 में!</em>
-</h1>
-<p class="hero-lead">
-            हर महीने केवल ₹2,000 की आसान किस्त चुकाएँ।
-            सिर्फ 3 साल तक किस्तों का भुगतान करें और उसके बाद
-            जीवनभर मुफ्त बिजली (300-400 यूनिट प्रति माह) का लाभ उठाएँ।
-          </p>
-<div class="hero-actions">
 
-    <a class="btn btn-green"
-       href="https://wa.me/919411022931?text=Namaste%2C%20mujhe%20rooftop%20solar%20system%20ki%20jankari%20chahiye."
-       rel="noopener" target="_blank">
-        WhatsApp पर बात करें <span>↗</span>
-    </a>
 
-    <a class="btn btn-outline" href="loan.html">
-     ऋण सुविधा
-    </a>
+<main>
 
-    <a class="btn btn-outline" href="documents.html">
-        आवश्यक दस्तावेज़ देखें
-    </a>
+<section class="hero" id="home">
+
+    <div class="hero-glow"></div>
+
+    <div class="wrap hero-grid">
+
+        <div class="hero-copy">
+
+            <span class="eyebrow">
+
+                <i></i> PARI ENTERPRISES SOLAR • AGRA
+
+            </span>
+
+            <h1>
+                सोलर लगवाएँ,<br/>
+                <em>सिर्फ ₹2,000 में!</em>
+            </h1>
+
+            <p class="hero-lead">
+
+                हर महीने केवल ₹2,000 की आसान किस्त चुकाएँ।
+                सिर्फ 3 साल तक किस्तों का भुगतान करें और उसके बाद
+                जीवनभर मुफ्त बिजली (300-400 यूनिट प्रति माह) का लाभ उठाएँ।
+
+            </p>
+
+            <div class="hero-actions">
+
+                <a class="btn btn-green"
+                   href="https://wa.me/919411022931?text=Namaste%2C%20mujhe%20rooftop%20solar%20system%20ki%20jankari%20chahiye."
+                   rel="noopener"
+                   target="_blank">
+
+                    WhatsApp पर बात करें <span>↗</span>
+
+                </a>
+
+                <a class="btn btn-outline" href="loan.html">
+                    ऋण सुविधा
+                </a>
+
+                <a class="btn btn-outline" href="documents.html">
+                    आवश्यक दस्तावेज़ देखें
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SOLAR ANIMATION REPLACES IMAGE -->
+
+        <div class="hero-visual">
+
+            <div class="solar-scene">
+
+                <!-- HEADING -->
+
+                <div class="solar-heading">
+                    SOLAR ENERGY
+                </div>
+
+
+                <!-- SUN -->
+
+                <div class="solar-sun"></div>
+
+                <div class="solar-sun-label">
+                    SUN
+                </div>
+
+
+                <!-- SUN RAYS -->
+
+                <div class="solar-rays">
+
+                    <div class="solar-ray"></div>
+                    <div class="solar-ray"></div>
+                    <div class="solar-ray"></div>
+                    <div class="solar-ray"></div>
+                    <div class="solar-ray"></div>
+
+                </div>
+
+
+                <!-- SOLAR PANEL -->
+
+                <div class="solar-panel"></div>
+
+                <div class="solar-panel-stand"></div>
+
+
+                <!-- ELECTRIC WIRE -->
+
+                <div class="solar-wire"></div>
+
+
+                <!-- MOVING ELECTRIC CURRENT -->
+
+                <div class="solar-current"></div>
+                <div class="solar-current"></div>
+                <div class="solar-current"></div>
+
+
+                <!-- FAN -->
+
+                <div class="solar-fan">
+
+                    <div class="solar-blades">
+
+                        <div class="solar-blade"></div>
+                        <div class="solar-blade"></div>
+                        <div class="solar-blade"></div>
+
+                    </div>
+
+                    <div class="solar-fan-center"></div>
+
+                </div>
+
+                <div class="solar-fan-label">
+                    FAN
+                </div>
+
+
+                <!-- GROUND -->
+
+                <div class="solar-ground"></div>
+
+            </div>
+
+        </div>
+
     </div>
 
-</div>
-<!-- Uploaded Image: solarpanel.jpg -->
-<div class="hero-visual">
-<img alt="PARI Enterprises Solar Panel Installation" class="hero-photo" src="solarpanel.jpg"/>
-</div>
-</div>
-<div class="hero-bottom"></div>
-</section><section class="quick-strip">
-<div class="wrap quick-grid">
-<div>
-<span class="quick-icon">⌂</span>
-<span>
-<b>Residential Solar</b>
-<small>घरों के लिए रूफटॉप सोलर</small>
-</span>
-</div>
-<div>
-<span class="quick-icon">⚡</span>
-<span>
-<b>On-Grid Systems</b>
-<small>ग्रिड से जुड़ी सोलर व्यवस्था</small>
-</span>
-</div>
-<div>
-<span class="quick-icon">☀</span>
-<span>
-<b>Scheme Guidance</b>
-<small>योजना की जानकारी व मार्गदर्शन</small>
-</span>
-</div>
-</div>
-</section></main>
+    <div class="hero-bottom"></div>
+
+</section>
+
+
+<section class="quick-strip">
+
+    <div class="wrap quick-grid">
+
+        <div>
+
+            <span class="quick-icon">⌂</span>
+
+            <span>
+                <b>Residential Solar</b>
+                <small>घरों के लिए रूफटॉप सोलर</small>
+            </span>
+
+        </div>
+
+        <div>
+
+            <span class="quick-icon">⚡</span>
+
+            <span>
+                <b>On-Grid Systems</b>
+                <small>ग्रिड से जुड़ी सोलर व्यवस्था</small>
+            </span>
+
+        </div>
+
+        <div>
+
+            <span class="quick-icon">☀</span>
+
+            <span>
+                <b>Scheme Guidance</b>
+                <small>योजना की जानकारी व मार्गदर्शन</small>
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
 <footer class="footer">
-<div class="wrap footer-main">
-<a class="footer-brand" href="index.html">
-<img alt="PARI ENTERPRISES SOLAR logo" src="pari%20enterprises.png"/>
-</a>
-<p>
-        सूरज की शक्ति, बिजली के बिल से राहत!<br/>
-        सौर ऊर्जा की ओर बढ़ाएँ एक स्मार्ट कदम।
-      </p>
-<div class="footer-links"><a href="index.html">होम</a><a href="about.html">हमारे बारे में</a><a href="services.html">सेवाएँ</a><a href="process.html">प्रक्रिया</a><a href="contact.html">संपर्क करें</a></div>
-</div>
-<div class="wrap copyright">
-      © <span id="year"></span> PARI ENTERPRISES SOLAR. सर्वाधिकार सुरक्षित।
+
+    <div class="wrap footer-main">
+
+        <a class="footer-brand" href="index.html">
+
+            <img alt="PARI ENTERPRISES SOLAR logo"
+                 src="pari%20enterprises.png"/>
+
+        </a>
+
+        <p>
+            सूरज की शक्ति, बिजली के बिल से राहत!<br/>
+            सौर ऊर्जा की ओर बढ़ाएँ एक स्मार्ट कदम।
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">होम</a>
+            <a href="about.html">हमारे बारे में</a>
+            <a href="services.html">सेवाएँ</a>
+            <a href="process.html">प्रक्रिया</a>
+            <a href="contact.html">संपर्क करें</a>
+
+        </div>
+
     </div>
+
+    <div class="wrap copyright">
+
+        © <span id="year"></span> PARI ENTERPRISES SOLAR.
+        सर्वाधिकार सुरक्षित।
+
+    </div>
+
 </footer>
-<a aria-label="WhatsApp पर संपर्क करें" class="whatsapp-float" href="https://wa.me/919411022931" rel="noopener" target="_blank">
+
+
+<!-- WHATSAPP FLOATING BUTTON -->
+
+<a aria-label="WhatsApp पर संपर्क करें"
+   class="whatsapp-float"
+   href="https://wa.me/919411022931"
+   rel="noopener"
+   target="_blank">
+
     ☏
-  </a>
+
+</a>
+
+
 <script src="script.js"></script>
-</body></html>
+
+</body>
+</html>
